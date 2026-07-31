@@ -477,9 +477,9 @@ python scripts/record_preview.py
 
 <div align="center">
 
-<video src="https://github.com/sridarsh7858/cybercrime-triage-agentic-rag/raw/main/assets/preview.mp4" controls muted width="92%"></video>
+<img src="assets/preview.gif" width="92%" alt="End-to-end walkthrough: sign in, describe the incident, attach a screenshot, run the triage, read the sourced report" />
 
-<sub><em>If the player doesn't load, <a href="assets/preview.mp4">download the recording directly</a>.</em></sub>
+<sub><em>Sped up. <a href="assets/preview.mp4">Full-resolution recording (MP4, 59s)</a>.</em></sub>
 
 </div>
 
