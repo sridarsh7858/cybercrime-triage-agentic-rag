@@ -1,0 +1,126 @@
+{
+  "playbook": "India SOC / Cyber Cell Investigation Playbook",
+  "revision": "2026-07-30",
+  "description": "Analyst-facing investigation steps. Every entry is traceable to an Indian statutory or regulatory instrument (RBI circulars, CERT-In Directions under Section 70B, NPCI procedures, I4C/CFCFRMS, BSA 2023). No entry is model-generated.",
+  "steps": [
+    {
+      "id": "IN-SOC-001",
+      "text": "Record the exact reporting timestamp and the NCRP/1930 acknowledgement number. The reporting delay is what determines customer liability under the RBI circular, so it must be evidenced, not estimated.",
+      "authority": "Reserve Bank of India",
+      "source": "RBI/2017-18/15 DBR.No.Leg.BC.78/09.07.005/2017-18 dated 6 July 2017 — Customer Protection: Limiting Liability of Customers in Unauthorised Electronic Banking Transactions",
+      "url": "https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=11040",
+      "tags": ["generic"],
+      "always": true,
+      "priority": 1
+    },
+    {
+      "id": "IN-SOC-002",
+      "text": "Extract the full money trail from the core banking and switch logs: UTR/RRN, UPI transaction IDs, payer and beneficiary VPAs, IFSC and account numbers, device fingerprint and the originating IP for each leg.",
+      "authority": "National Payments Corporation of India",
+      "source": "NPCI UPI transaction identifiers and dispute redressal procedure",
+      "url": "https://www.npci.org.in/what-we-do/upi/dispute-redressal-mechanism",
+      "tags": ["upi", "netbanking", "card", "generic"],
+      "priority": 2
+    },
+    {
+      "id": "IN-SOC-003",
+      "text": "Raise the ticket through the Citizen Financial Cyber Fraud Reporting and Management System so the hold instruction reaches the beneficiary bank on the 1930/NCRP rails, and track the layer-wise ledger the system returns.",
+      "authority": "Indian Cyber Crime Coordination Centre (I4C), Ministry of Home Affairs",
+      "source": "Citizen Financial Cyber Fraud Reporting and Management System (CFCFRMS), NCRP",
+      "url": "https://cybercrime.gov.in/",
+      "tags": ["generic", "upi", "netbanking"],
+      "always": true,
+      "priority": 3
+    },
+    {
+      "id": "IN-SOC-004",
+      "text": "Send a formal request to the beneficiary bank or PSP for KYC records, account-opening documents and a lien or freeze on the mule account, and follow the funds through each subsequent layer of transfers.",
+      "authority": "Reserve Bank of India",
+      "source": "RBI Master Direction on Know Your Customer (KYC)",
+      "url": "https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=11040",
+      "tags": ["generic", "upi", "netbanking", "account_takeover"],
+      "priority": 4
+    },
+    {
+      "id": "IN-SOC-005",
+      "text": "Run the limited-liability determination: classify the loss as bank deficiency, third-party breach, or customer negligence, shadow-credit the disputed amount within 10 working days of notification, and close the case within 90 days.",
+      "authority": "Reserve Bank of India",
+      "source": "RBI/2017-18/15 DBR.No.Leg.BC.78/09.07.005/2017-18 dated 6 July 2017",
+      "url": "https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=11040",
+      "tags": ["generic"],
+      "priority": 5
+    },
+    {
+      "id": "IN-SOC-006",
+      "text": "Report the incident to CERT-In within six hours of noticing it, as required by the Section 70B Directions of 28 April 2022 for the listed incident categories.",
+      "authority": "Indian Computer Emergency Response Team (CERT-In), MeitY",
+      "source": "CERT-In Directions under Section 70B(6) of the IT Act, dated 28 April 2022",
+      "url": "https://www.cert-in.org.in/PDF/CERT-In_Directions_70B_28.04.2022.pdf",
+      "tags": ["generic", "phishing", "account_takeover"],
+      "priority": 6
+    },
+    {
+      "id": "IN-SOC-007",
+      "text": "Confirm that system clocks are synchronised to the NIC or NPL NTP servers and that the relevant logs are retained in India for 180 days, otherwise the timeline you build will not stand up under the same CERT-In Directions.",
+      "authority": "Indian Computer Emergency Response Team (CERT-In), MeitY",
+      "source": "CERT-In Directions under Section 70B(6) of the IT Act, dated 28 April 2022",
+      "url": "https://www.cert-in.org.in/PDF/CERT-In_Directions_70B_28.04.2022.pdf",
+      "tags": ["generic"],
+      "priority": 7
+    },
+    {
+      "id": "IN-SOC-008",
+      "text": "Acquire and hash all digital evidence, maintain the chain of custody, and obtain the certificate for electronic records under Section 63 of the Bharatiya Sakshya Adhiniyam, 2023 so the artefacts are admissible.",
+      "authority": "Ministry of Law and Justice, Government of India",
+      "source": "Bharatiya Sakshya Adhiniyam, 2023 — Section 63, admissibility of electronic records",
+      "url": "https://www.meity.gov.in/",
+      "tags": ["generic"],
+      "priority": 8
+    },
+    {
+      "id": "IN-SOC-009",
+      "text": "Submit a takedown request for the phishing domain, short link or spoofed application through CERT-In and the hosting provider or registrar, and capture the page source and WHOIS record before it disappears.",
+      "authority": "Indian Computer Emergency Response Team (CERT-In), MeitY",
+      "source": "CERT-In incident response and takedown procedure",
+      "url": "https://www.cert-in.org.in/",
+      "tags": ["phishing", "loan_app", "investment"],
+      "priority": 9
+    },
+    {
+      "id": "IN-SOC-010",
+      "text": "Correlate any SIM swap, port-out or IMEI change against the transaction timeline with the telecom operator, and use the Sanchar Saathi channels to trace and block the handset or connection used.",
+      "authority": "Department of Telecommunications, Government of India",
+      "source": "Sanchar Saathi — CEIR and TAFCOP facilities",
+      "url": "https://sancharsaathi.gov.in/",
+      "tags": ["sim_swap", "account_takeover", "otp"],
+      "priority": 10
+    },
+    {
+      "id": "IN-SOC-011",
+      "text": "Image the victim's device or pull its application inventory for remote-access and screen-sharing tooling, note the session timestamps, and check whether accessibility permissions were granted to a sideloaded package.",
+      "authority": "Indian Computer Emergency Response Team (CERT-In), MeitY",
+      "source": "CERT-In advisories on remote-access and accessibility-abuse fraud",
+      "url": "https://www.cert-in.org.in/",
+      "tags": ["remote_access", "loan_app", "impersonation"],
+      "priority": 11
+    },
+    {
+      "id": "IN-SOC-012",
+      "text": "Build the mule-account network: cluster the beneficiary accounts, VPAs, devices and phone numbers seen across recent cases to identify the controlling syndicate rather than a single drop account.",
+      "authority": "Indian Cyber Crime Coordination Centre (I4C), Ministry of Home Affairs",
+      "source": "I4C mule-account and syndicate analysis programme",
+      "url": "https://i4c.mha.gov.in/",
+      "tags": ["generic", "upi", "netbanking"],
+      "priority": 12
+    },
+    {
+      "id": "IN-SOC-013",
+      "text": "Publish the confirmed indicators — beneficiary VPAs, account numbers, phone numbers, domains and app hashes — to I4C and the sectoral CSIRT so peer institutions can block them proactively.",
+      "authority": "Indian Cyber Crime Coordination Centre (I4C), Ministry of Home Affairs",
+      "source": "I4C indicator-sharing and NCRP case record",
+      "url": "https://i4c.mha.gov.in/",
+      "tags": ["generic"],
+      "priority": 13
+    }
+  ]
+}

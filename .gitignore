@@ -1,0 +1,32 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# Node
+node_modules/
+
+# Secrets
+.env
+.env.local
+
+# The prebuilt ChromaDB vector store (~1.7 GB of embeddings over 300k
+# complaints). Far past GitHub's file-size limits — rebuild it locally with the
+# ingest script rather than committing it. See README.
+# Leading slash matters: it anchors to the repo root so app/data/playbooks/
+# (the trusted-source corpora, which MUST be committed) is not swept up too.
+/data/
+
+# Artefacts of scripts/record_preview.py. The video is meant to be uploaded to
+# GitHub's CDN (see README) rather than committed, since only CDN-hosted files
+# render as a player.
+preview.mp4
+preview.webm
+preview-failure.png
+videos/

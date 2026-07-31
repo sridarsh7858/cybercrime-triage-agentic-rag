@@ -1,0 +1,154 @@
+{
+  "playbook": "India Consumer Cyber-Fraud Response",
+  "revision": "2026-07-30",
+  "description": "Victim-facing remediation actions. Every entry is traceable to an Indian statutory or regulatory authority (RBI, I4C/MHA, NPCI, CERT-In, DoT, SEBI). No entry is model-generated.",
+  "steps": [
+    {
+      "id": "IN-CONS-001",
+      "text": "Call the 1930 National Cyber Crime Helpline immediately. Reporting inside the 'golden hour' lets the Citizen Financial Cyber Fraud Reporting and Management System push a hold to the beneficiary bank before the money is withdrawn.",
+      "authority": "Indian Cyber Crime Coordination Centre (I4C), Ministry of Home Affairs",
+      "source": "National Cyber Crime Reporting Portal / 1930 helpline",
+      "url": "https://cybercrime.gov.in/",
+      "tags": ["generic"],
+      "always": true,
+      "priority": 1
+    },
+    {
+      "id": "IN-CONS-002",
+      "text": "File a formal complaint on the National Cyber Crime Reporting Portal at cybercrime.gov.in and keep the acknowledgement number. Convert it to an FIR at your local cyber police station if the amount is significant.",
+      "authority": "Indian Cyber Crime Coordination Centre (I4C), Ministry of Home Affairs",
+      "source": "National Cyber Crime Reporting Portal",
+      "url": "https://cybercrime.gov.in/",
+      "tags": ["generic"],
+      "always": true,
+      "priority": 2
+    },
+    {
+      "id": "IN-CONS-003",
+      "text": "Notify your bank in writing within three working days of noticing the debit. Under the RBI customer-protection circular, a customer who reports an unauthorised electronic transaction within three working days bears zero liability, and the bank must shadow-credit the disputed amount within 10 working days.",
+      "authority": "Reserve Bank of India",
+      "source": "RBI/2017-18/15 DBR.No.Leg.BC.78/09.07.005/2017-18 dated 6 July 2017 — Customer Protection: Limiting Liability of Customers in Unauthorised Electronic Banking Transactions",
+      "url": "https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=11040",
+      "tags": ["generic", "upi", "card", "netbanking", "account_takeover"],
+      "always": true,
+      "priority": 3
+    },
+    {
+      "id": "IN-CONS-004",
+      "text": "Preserve every piece of evidence before deleting anything: screenshots of the chat or call log, transaction reference numbers (UTR/RRN), UPI IDs, the caller's phone number, and the exact dates and times.",
+      "authority": "Indian Cyber Crime Coordination Centre (I4C), Ministry of Home Affairs",
+      "source": "National Cyber Crime Reporting Portal — complaint filing requirements",
+      "url": "https://cybercrime.gov.in/",
+      "tags": ["generic"],
+      "priority": 4
+    },
+    {
+      "id": "IN-CONS-005",
+      "text": "Raise the dispute inside your UPI app against the specific transaction, and escalate through the NPCI dispute redressal mechanism (helpline 1800-120-1740) if the app or bank does not respond.",
+      "authority": "National Payments Corporation of India",
+      "source": "NPCI UPI Dispute Redressal Mechanism",
+      "url": "https://www.npci.org.in/what-we-do/upi/dispute-redressal-mechanism",
+      "tags": ["upi"],
+      "priority": 5
+    },
+    {
+      "id": "IN-CONS-006",
+      "text": "Freeze or deregister the affected UPI ID through your bank's 24x7 fraud line and set a fresh UPI PIN. Do not reuse the compromised PIN on any other handle.",
+      "authority": "Reserve Bank of India",
+      "source": "RBI customer-protection framework for unauthorised electronic banking transactions",
+      "url": "https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=11040",
+      "tags": ["upi", "account_takeover"],
+      "priority": 6
+    },
+    {
+      "id": "IN-CONS-007",
+      "text": "Stop sharing OTPs, CVV, PIN or card details with anyone. No bank, payment app or government officer is permitted to ask for them — every such request is fraudulent regardless of the caller ID displayed.",
+      "authority": "Reserve Bank of India",
+      "source": "RBI public awareness campaign on safe digital banking",
+      "url": "https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=11040",
+      "tags": ["otp", "kyc", "phishing", "impersonation", "card"],
+      "priority": 7
+    },
+    {
+      "id": "IN-CONS-008",
+      "text": "Uninstall any screen-sharing or remote-access application the caller asked you to install (AnyDesk, TeamViewer, QuickSupport and similar), then reboot the device and re-check your accounts. These apps let the fraudster read your OTPs directly.",
+      "authority": "Indian Computer Emergency Response Team (CERT-In)",
+      "source": "CERT-In public advisories on remote-access fraud",
+      "url": "https://www.cert-in.org.in/",
+      "tags": ["remote_access", "impersonation", "otp"],
+      "priority": 8
+    },
+    {
+      "id": "IN-CONS-009",
+      "text": "Hotlist and block the affected debit or credit card through your bank's app, IVR or branch, and request a replacement on a new card number.",
+      "authority": "Reserve Bank of India",
+      "source": "RBI customer-protection framework for unauthorised electronic banking transactions",
+      "url": "https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=11040",
+      "tags": ["card"],
+      "priority": 9
+    },
+    {
+      "id": "IN-CONS-010",
+      "text": "Change your net-banking password and transaction password, enable two-factor authentication, and review the registered beneficiary list, email address and mobile number on the account for entries you did not add.",
+      "authority": "Reserve Bank of India",
+      "source": "RBI customer-protection framework for unauthorised electronic banking transactions",
+      "url": "https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=11040",
+      "tags": ["netbanking", "account_takeover", "phishing"],
+      "priority": 10
+    },
+    {
+      "id": "IN-CONS-011",
+      "text": "Do not comply with a 'digital arrest'. No agency — CBI, ED, Police, Customs or the judiciary — arrests, interrogates or collects fines over a video call. Disconnect, do not transfer money, and report the number on 1930.",
+      "authority": "Indian Cyber Crime Coordination Centre (I4C), Ministry of Home Affairs",
+      "source": "I4C public advisory on 'digital arrest' fraud",
+      "url": "https://i4c.mha.gov.in/",
+      "tags": ["digital_arrest", "impersonation"],
+      "priority": 11
+    },
+    {
+      "id": "IN-CONS-012",
+      "text": "Verify any investment or trading platform against SEBI's register of intermediaries before sending further funds, and treat guaranteed high returns, WhatsApp/Telegram 'advisory groups' and withdrawal fees as fraud indicators.",
+      "authority": "Securities and Exchange Board of India",
+      "source": "SEBI register of registered intermediaries",
+      "url": "https://www.sebi.gov.in/intermediaries.html",
+      "tags": ["investment", "job_scam"],
+      "priority": 12
+    },
+    {
+      "id": "IN-CONS-013",
+      "text": "If your number was ported or the SIM stopped working before the debit, report it to your telecom operator and on the Sanchar Saathi portal, and check the connections issued in your name there.",
+      "authority": "Department of Telecommunications, Government of India",
+      "source": "Sanchar Saathi citizen portal",
+      "url": "https://sancharsaathi.gov.in/",
+      "tags": ["sim_swap", "account_takeover"],
+      "priority": 13
+    },
+    {
+      "id": "IN-CONS-014",
+      "text": "Check whether the lending app is an RBI-regulated entity or is tied to a registered NBFC before repaying anything, and report harassment or contact-list misuse on 1930 along with the app name and package ID.",
+      "authority": "Reserve Bank of India",
+      "source": "RBI Guidelines on Digital Lending",
+      "url": "https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=12032",
+      "tags": ["loan_app"],
+      "priority": 14
+    },
+    {
+      "id": "IN-CONS-015",
+      "text": "Pull your credit report from a CIC and check for loans or cards opened in your name, so identity misuse is caught before it reaches collections.",
+      "authority": "Reserve Bank of India",
+      "source": "RBI framework on Credit Information Companies — free annual full credit report",
+      "url": "https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=11040",
+      "tags": ["account_takeover", "loan_app", "kyc"],
+      "priority": 15
+    },
+    {
+      "id": "IN-CONS-016",
+      "text": "If the bank rejects the claim, does not reply within 30 days, or the reply is unsatisfactory, escalate free of cost to the RBI Ombudsman through the Complaint Management System portal.",
+      "authority": "Reserve Bank of India",
+      "source": "Reserve Bank – Integrated Ombudsman Scheme, RBI Complaint Management System",
+      "url": "https://cms.rbi.org.in/",
+      "tags": ["generic"],
+      "priority": 16
+    }
+  ]
+}
