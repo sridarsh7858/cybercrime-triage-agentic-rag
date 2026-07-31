@@ -33,7 +33,8 @@ import urllib.request
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 FRONTEND = os.path.join(ROOT, "frontend")
 VIDEO_DIR = os.path.join(ROOT, "videos")
-OUT_MP4 = os.path.join(ROOT, "preview.mp4")
+# Committed, because the README embeds it.
+OUT_MP4 = os.path.join(ROOT, "assets", "preview.mp4")
 
 BACKEND_PORT = 8000
 FRONTEND_PORT = 5173

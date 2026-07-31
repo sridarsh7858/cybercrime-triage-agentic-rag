@@ -23,10 +23,8 @@ node_modules/
 # (the trusted-source corpora, which MUST be committed) is not swept up too.
 /data/
 
-# Artefacts of scripts/record_preview.py. The video is meant to be uploaded to
-# GitHub's CDN (see README) rather than committed, since only CDN-hosted files
-# render as a player.
-preview.mp4
+# Intermediates of scripts/record_preview.py. The finished recording itself is
+# committed at assets/preview.mp4 so the README can embed it.
 preview.webm
 preview-failure.png
 videos/
